@@ -1,0 +1,16 @@
+name: Workflow
+#Workflow triggered when someone makes a push to the main branch
+on: 
+  push:
+    branches:
+      -  main
+  #Allows manual trigger of workflow    
+  workflow_dispatch:
+jobs:
+  build-test-deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get REPO
+        uses: actions/checkout@v4
+      - name: Build
+        run: echo "Building app"
